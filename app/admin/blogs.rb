@@ -11,5 +11,17 @@ ActiveAdmin.register Blog do
 #   permitted << :other if params[:action] == 'create' && current_user.admin?
 #   permitted
 # end
+form do |form|
+   form.inputs do
+   	 form.input :title, :label => 'title'
+   	 form.input :image, :label => 'image'
+     form.input :category, :label => 'Category', :as => :select, :collection => Category.all.map{|u| ["#{u.name}", u.id]}   
+     form.input :description, :label =>'description'
+
+
+
+   	 end
+   form.actions
+ end
 
 end

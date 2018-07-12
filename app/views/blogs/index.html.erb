@@ -1,7 +1,6 @@
 <p id="notice"><%= notice %></p>
 <h1>Blogs</h1>
-<table border="2" align="center" style="background: linear-gradient(to bottom, #33ccff 0%,
-#ff99cc 100%)">
+<table class="table">
   <thead> 
     <tr>
       <th>Title</th>
@@ -17,24 +16,18 @@
       <tr>
         <td><%= blog.title %></td>
         
-          <td><%= image_tag blog.image_url.to_s %></td>
-
-        <td><%= blog.category %></td>
-        
+        <td><%= image_tag blog.image_url.to_s %></td>
+        <td><%= Category.find(blog.category).name %></td>
         <td><%= blog.description %></td>
-        <td><%= link_to 'Show', blog %></td>
-        <td><%= link_to 'Edit', edit_blog_path(blog) %></td>
-        <td><%= link_to 'Destroy', blog, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', blog , class: "btn btn-primary"%></td>
+        <td><%= link_to 'Edit', edit_blog_path(blog), class: "btn btn-primary" %></td>
+        <td><%= link_to 'Destroy', blog, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
 <br>
-
-
 <% if @blogs.blank? %>
-  <h4>There are no recipes containing the term <%= params[:search] %>.</h4>
+  <h4>Result can not found <%= params[:search] %>.</h4>
 <% end %>
-
 <%= link_to 'New Blog', new_blog_path %>
