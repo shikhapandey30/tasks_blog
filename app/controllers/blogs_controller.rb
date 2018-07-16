@@ -7,12 +7,9 @@ class BlogsController < InheritedResources::Base
       @blogs = Blog.all.order("created_at DESC")
     end
   end
+  
 
   private
-    
-    def contact
-    end
-
     def blog_params
       params.require(:blog).permit(:title, :image, :category, :description)
     end   

@@ -1,6 +1,10 @@
 class CommentsController < ApplicationController
   #before_action :comment
   #before_action :comment, only: [:destroy, :edit, :update]
+  def new
+    @comment = Comment.new(:blog_id => [:blog_id])
+  end
+  
 	def create
     @blog = Blog.find(params[:blog_id])
     @comment = @blog.comments.create(comment_params)

@@ -7,12 +7,13 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-
+    
   </head>
 
   <body>
     
-        <!-- Static navbar -->
+    
+        
       <nav class="navbar navbar-default">
         <div class="container-fluid">
           <div class="navbar-header">
@@ -22,14 +23,18 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">Project name</a>
+            <a class="navbar-brand" href="#">BLOGGER</a>
           </div>
           <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-              <li class="active"><a href="#">Home</a></li>
-              <li><a href="#">About</a></li>
+              <li class="active"><a href="http://localhost:3000">Home</a></li>
+              <li><a href="http://localhost:3000/blogs/new">New Blog</a></li>
+              <li><a href="http://localhost:3000/users/sign_up">Registration</a></li>
+              <li><a href="http://localhost:3000/users/sign_in">Login</a></li>
+
+
               <li><a href="#">Contact</a></li>
-              <li class="dropdown">
+              <!--<li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
                 <ul class="dropdown-menu">
                   <li><a href="#">Action</a></li>
@@ -40,16 +45,31 @@
                   <li><a href="#">Separated link</a></li>
                   <li><a href="#">One more separated link</a></li>
                 </ul>
-              </li>
+              </li>-->
             </ul>
-            <ul class="nav navbar-nav navbar-right">
+            <!--<ul class="nav navbar-nav navbar-right">
               <li class="active"><a href="./">Default <span class="sr-only">(current)</span></a></li>
               <li><a href="../navbar-static-top/">Static top</a></li>
               <li><a href="../navbar-fixed-top/">Fixed top</a></li>
-            </ul>
-          </div><!--/.nav-collapse -->
-        </div><!--/.container-fluid -->
+            </ul>-->
+          </div>
+        </div>
       </nav>
+      <table border="2" align="center" style="background: linear-gradient(to bottom, #33ccff 0%,
+       #ff99cc 100%)" width="20%">
+        <td>
+          <%= form_tag(blogs_path, :method => "get", id: "search-form") do %>
+           <%= text_field_tag :search, params[:search], placeholder: "Search Blogs" %>
+           <%= submit_tag "Search", :name => nil, class: "btn btn-info" %>
+          <% end %>
+        </td>
+      </table>
+      <br>
+      <br>
+      <table border="2" align="center" style="background: linear-gradient(to bottom, #33ccff 0%,
+       #ff99cc 100%)" width="20%">
+        
+        <td>
       <div class="container">
         <div id="user_nav">
           <% if user_signed_in? %>
@@ -67,13 +87,8 @@
         </div>
       </footer>
 
-
-
-<%= form_tag(blogs_path, :method => "get", id: "search-form") do %>
-    <%= text_field_tag :search, params[:search], placeholder: "Search Blogs", class: "form-control" %>
-    <%= submit_tag "Search", :name => nil %>
-<% end %>
-
-
-
-</body>
+       </td>
+     
+     </table>
+  </body>
+</html>  

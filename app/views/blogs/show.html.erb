@@ -1,33 +1,60 @@
-<p id="notice"><%= notice %>
-</p>
+<html>
+	<head>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<style>
+			.fa {
+			    font-size: 50px;
+			    cursor: pointer;
+			    user-select: none;
+			}
 
-<p>
-	<strong>Title:</strong>
-	<%= @blog.title %>
-</p>
+			.fa:hover {
+			  color: darkblue;
+			}
+		</style>
+	</head>
 
-<p>
-	<strong>Image:</strong>
-	<%= image_tag @blog.image_url(:thumb).to_s %>
-</p>
+	<p id="notice"><%= notice %>
+	</p>
 
-<p>
-	<strong>Category:</strong>
-	<% if @blog.category.present? %>
-      <%= Category.find(@blog.category).name %>
-   <% end %>
-</p>
+	<p>
+		<strong>Title:</strong>
+		<%= @blog.title %>
+	</p>
 
-<p>
-	<strong>Description:</strong>
-	<%= @blog.description %>
-</p>
 
-<h2>Comments</h2>
+	<p>
+		<strong>Category:</strong>
+		<% if @blog.category.present? %>
+	      <%= Category.find(@blog.category).name %>
+	   <% end %>
+	</p>
+
+	<p>
+		<strong>Image:</strong>
+		<%= image_tag @blog.image_url(:thumb).to_s %>
+	</p>
+
+
+
+	<p>
+		<strong>Description:</strong>
+		<%= @blog.description %>
+	</p><i onclick="myFunction(this)" class="fa fa-thumbs-up"></i>
+
+	<script>
+		function myFunction(x) {
+	    x.classList.toggle("fa-thumbs-down");
+		}
+	</script>
+
+
+	<h2>Comments</h2>
   <%= render @blog.comments %>
  
-<h2>Add a comment:</h2>
-<%= render 'comments/form' %>
+	<h2>Add a comment:</h2>
+	<%= render 'comments/form' %>
 
-<%= link_to 'Edit', edit_blog_path(@blog) %> |
-<%= link_to 'Back', blogs_path %>
+	<%= link_to 'Edit', edit_blog_path(@blog) %> |
+	<%= link_to 'Back', blogs_path %>
+</html>	

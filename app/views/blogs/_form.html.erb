@@ -25,9 +25,6 @@
 
         <div class="field">
          <%= form.label :category %>
-          <%#= form.text_field :category %>
-          <%#= form.select(:Category_id, Category.all.collect {|u| [u.categories_name, u.id]}, :prompt => 'Select') %>
-      
          <%= form.select(:category, Category.all.collect {|u| [u.name, u.id]}, :prompt => 'Select') %> 
         </div> 
 
