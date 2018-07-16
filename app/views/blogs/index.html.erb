@@ -17,7 +17,11 @@
         <td><%= blog.title %></td>
         
         <td><%= image_tag blog.image_url.to_s %></td>
-        <td><%= Category.find(blog.category).name %></td>
+        <td>
+          <% if blog.category.present? %>
+            <%= Category.find(blog.category).try(:name) %>
+          <%end%>  
+        </td>
         <td><%= blog.description %></td>
         <td><%= link_to 'Show', blog , class: "btn btn-primary"%></td>
         <td><%= link_to 'Edit', edit_blog_path(blog), class: "btn btn-primary" %></td>
