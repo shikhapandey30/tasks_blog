@@ -23,15 +23,16 @@
     <% @replies= Reply.where(:comment_id=> comment) %>
     <% @replies.each do |reply| %>
     <p>
+      <br>
       <strong>Reply</strong>
       <%=reply.body%>
     </p>
-
+     
     <%end%>
-
+     
     <div id="reply-container"></div>
   </td>
 </table>
 
 <%= render :partial => 'replies/form', locals: {blog: @blog, comment: comment, reply: comment.replies.new} %>
-<%= render partial: "likes/like", locals: {comment: comment } %>
+<%= render partial: "likes/like", locals: {comment: comment } %> 

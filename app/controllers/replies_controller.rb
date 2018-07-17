@@ -23,7 +23,6 @@ class RepliesController < ApplicationController
 	   		format.js { render action: "create", :locals => {comment_id: params[:reply][:comment_id]} }
 	 	  end
  		end
-     # redirect_to "/blogs/#{params[:blog_id]}"
   end
 
   def show

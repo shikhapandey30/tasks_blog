@@ -14,47 +14,59 @@
 		</style>
 	</head>
 
-	<p id="notice"><%= notice %>
-	</p>
+	<p id="notice"><%= notice %></p>
+	<table border="3px" width="70%" align="center">
+		<tr>
+		  <td align="center">
+	      <p>
+					<strong>Title:</strong>
+					<%= @blog.title %>
+				</p>
+	    </td>
+		  <td align="center">
+				<p>
+					<strong>Category:</strong>
+					<% if @blog.category.present? %>
+				      <%= Category.find(@blog.category).name %>
+				   <% end %>
+				</p>
+		  </td>
+		  <td align="center">
+				<p>
+					<strong>Image:</strong>
+					<%= image_tag @blog.image_url(:thumb).to_s %>
+				</p>
+		  </td>
+		  <td align="center">
+	      <p>
+					<strong>Description:</strong>
+					<%= @blog.description %>
+				</p>
+		  </td>
+		</tr>
+	</table>
+  </br>
+		<table border="3px" width="70%" align="center">
+			<tr align="center">
+					<td align="center">
+						<h2>Comments</h2>
+					  <%= render @blog.comments %>
+					</td>
 
-	<p>
-		<strong>Title:</strong>
-		<%= @blog.title %>
-	</p>
-
-
-	<p>
-		<strong>Category:</strong>
-		<% if @blog.category.present? %>
-	      <%= Category.find(@blog.category).name %>
-	   <% end %>
-	</p>
-
-	<p>
-		<strong>Image:</strong>
-		<%= image_tag @blog.image_url(:thumb).to_s %>
-	</p>
-
-
-
-	<p>
-		<strong>Description:</strong>
-		<%= @blog.description %>
-	</p><i onclick="myFunction(this)" class="fa fa-thumbs-up"></i>
-
-	<script>
-		function myFunction(x) {
-	    x.classList.toggle("fa-thumbs-down");
-		}
-	</script>
-
-
-	<h2>Comments</h2>
-  <%= render @blog.comments %>
- 
-	<h2>Add a comment:</h2>
-	<%= render 'comments/form' %>
-
-	<%= link_to 'Edit', edit_blog_path(@blog) %> |
-	<%= link_to 'Back', blogs_path %>
+					<td>
+						<h2>Add a comment:</h2>
+						<%= render 'comments/form' %>
+					</td>
+				</tr>
+			</table>
+			<br>
+			<table border="3px" width="70%" align="center">
+				<tr align="center">
+				  <td align="center">		
+						<%= link_to 'Edit', edit_blog_path(@blog), class: "btn btn-primary" %> |
+					
+						<%= link_to 'Back', blogs_path, class: "btn btn-primary" %>
+					</td>
+		  </tr>
+		</table>
 </html>	

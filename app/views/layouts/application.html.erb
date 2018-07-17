@@ -27,7 +27,7 @@
           </div>
           <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-              <li class="active"><a href="/blogs/show">Home</a></li>
+              <li class="active"><a href="/blogs/index">Home</a></li>
               <li><a href="/blogs/new">New Blog</a></li>
               <li><a href="/users/sign_up">Registration</a></li>
               <li><a href="/users/sign_in">Login</a></li>
@@ -70,25 +70,26 @@
        #ff99cc 100%)" width="20%">
         
         <td>
-      <div class="container">
-        <div id="user_nav">
-          <% if user_signed_in? %>
-            Signed in as <%= current_user.email %>. Not you?
-            <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
-          <% else %>
-          <%= link_to "Sign up", new_user_registration_path %> or <%= link_to "sign in", new_user_session_path %>
-          <% end %>
-        </div>
-        <%= yield %>
-      </div>
-      <footer class="footer">
-        <div class="container">
-          <span class="text-muted">Place sticky footer content here.</span>
-        </div>
-      </footer>
+          <div class="container" align="center">
+            <div id="user_nav">
+              <% if user_signed_in? %>
+                Signed in as <%= current_user.email %>. Not you?
+                <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
+              <% else %>
+              <%= link_to "Sign up", new_user_registration_path %> or <%= link_to "sign in", new_user_session_path %>
+              <% end %>
+            </div>
+            <%= yield %>
+         </div>
+         <footer class="footer">
+            <div class="footer">
+              <p style="color:red;"><font color="red">blog-demo &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <a href="https://www.w3schools.com">W3Schools.com</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <a href="https://www.w3schools.com/html/">HTML Tutorial</a></p>
 
-       </td>
-     
-     </table>
+            </div>
+         </footer>
+        </td>
+      </table>
   </body>
 </html>  

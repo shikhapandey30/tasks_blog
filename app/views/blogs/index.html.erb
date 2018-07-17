@@ -30,4 +30,4 @@
 <% if @blogs.blank? %>
   <h4>Result can not found <%= params[:search] %>.</h4>
 <% end %>
-<%= link_to 'New Blog', new_blog_path %>
+<%= link_to 'New Blog', new_blog_path, class: "btn btn-primary" %>

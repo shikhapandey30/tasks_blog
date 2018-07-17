@@ -11,32 +11,45 @@
   <% end %>
   <table border="2" align="center" style="background: linear-gradient(to bottom, #33ccff 0%,
       #ff99cc 100%)" width="20%" height="100px">
-    <tr>
-      <td>
+      
+      
+      
+      
+    <tr align="center">
+      <td align="center">
         <div class="field">
          <%= form.label :title %>
          <%= form.text_field :title %>
         </div>
+      </td>
+      <td>
 
          <div class="field">
           <%= form.label :image %>
           <%= form.file_field :image %>
         </div>
-
+      </td>
+      <td>
         <div class="field">
          <%= form.label :category %>
          <%= form.select(:category, Category.all.collect {|u| [u.name, u.id]}, :prompt => 'Select') %> 
         </div> 
-
+      </td>
+      <td>
         <div class="field">
          <%= form.label :description %>
          <%= form.text_field :description, :cols => 30, :rows => 30 %>
         </div>
-
-        <div class="actions">
-         <%= form.submit %>
-        </div>
       </td>
+    </tr>
+  </table>
+  <br>
+  <table>
+  <tr>    
+        <div class="actions" align="center">
+         <%= form.submit "Create Blog", class: "btn btn-primary" %>
+        </div>
+      
     </tr>
   </table>
 <% end %>
