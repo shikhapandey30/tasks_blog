@@ -8,7 +8,7 @@ default: &default
 
 development:
   <<: *default
-  database: demo_development
+  database: blog_development
 production:
   <<: *default
-  database: demo_production
+  database: blog_production
